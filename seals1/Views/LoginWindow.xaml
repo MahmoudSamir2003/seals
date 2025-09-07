@@ -1,0 +1,46 @@
+﻿<Window x:Class="SalesSuite.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Login" Height="450" Width="650"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" Background="#ecf0f1">
+
+    <Grid>
+        <!-- خلفية متدرجة -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#FFA588C5" Offset="0"/>
+                <GradientStop Color="#2575fc" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- كارت تسجيل الدخول -->
+        <Border Background="White" CornerRadius="20" Padding="30"
+                Width="400" Height="320"
+                HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel>
+                <TextBlock Text="Welcome Back" FontSize="26" FontWeight="Bold"
+                           Foreground="#2d3436" HorizontalAlignment="Center"/>
+                <TextBlock Text="Login to continue" FontSize="14"
+                           Foreground="Gray" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+                <TextBlock Text="Username" Foreground="Gray"/>
+                <TextBox x:Name="UsernameBox" Height="35" Margin="0,5,0,15"
+                         Background="#f1f2f6" BorderBrush="#dcdde1"/>
+
+                <TextBlock Text="Password" Foreground="Gray"/>
+                <PasswordBox x:Name="PasswordBox" Height="35" Margin="0,5,0,20"
+                             Background="#f1f2f6" BorderBrush="#dcdde1"/>
+
+                <Button Content="Login" Click="Login_Click"
+                        Height="40" Background="#2575fc" Foreground="White"
+                        FontWeight="Bold" BorderBrush="#2575fc" Margin="0,0,0,10"/>
+
+                <Button Content="Create Account" Click="Register_Click"
+                        Background="Transparent" Foreground="#2575fc"
+                        BorderBrush="Transparent" FontSize="14"
+                        Cursor="Hand" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
