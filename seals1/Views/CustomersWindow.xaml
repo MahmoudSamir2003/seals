@@ -5,118 +5,137 @@
         Background="#f0f2f5" WindowStartupLocation="CenterScreen"
         FontFamily="Segoe UI">
 
-	<Grid Margin="20">
-		<Grid.RowDefinitions>
-			<RowDefinition Height="Auto"/>
-			<RowDefinition Height="Auto"/>
-			<RowDefinition Height="*"/>
-		</Grid.RowDefinitions>
+    <DockPanel>
+        <!-- ✅ Sidebar -->
+        <StackPanel DockPanel.Dock="Left" Background="#2c3e50" Width="180">
+            <TextBlock Text="Sales Suite" Foreground="White" FontSize="18"
+                       FontWeight="Bold" Margin="20" HorizontalAlignment="Center"/>
+            <ListBox x:Name="NavList" Background="Transparent" BorderThickness="0" Foreground="White"
+                     SelectionChanged="NavList_SelectionChanged" FontSize="14" FontWeight="Bold">
+                <ListBoxItem Content="🏠 Home" Tag="Home"/>
+                <ListBoxItem Content="👤 Customers" Tag="Customers"/>
+                <ListBoxItem Content="📦 Products" Tag="Products"/>
+                <ListBoxItem Content="🛒 Purchases" Tag="Purchases"/>
+                <ListBoxItem Content="📑 Reports" Tag="Reports"/>
+                <ListBoxItem Content="📝 Register" Tag="Register"/>
+                <ListBoxItem Content="🚪 Logout" Tag="Logout"/>
+            </ListBox>
+        </StackPanel>
 
-		<!-- العنوان -->
-		<TextBlock Text="Customer Management"
-                   FontSize="28" FontWeight="SemiBold"
-                   Foreground="#2C3E50" Margin="0,0,0,20"/>
+        <!-- ✅ Main Content -->
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-		<!-- فورم الإدخال -->
-		<Border Grid.Row="1" Background="White" CornerRadius="12"
-                BorderBrush="#dcdde1" BorderThickness="1" Padding="20" Margin="0,0,0,20">
-			<Border.Effect>
-				<DropShadowEffect Color="Black" BlurRadius="12" ShadowDepth="2" Opacity="0.3"/>
-			</Border.Effect>
+            <!-- العنوان -->
+            <TextBlock Text="Customer Management"
+                       FontSize="28" FontWeight="SemiBold"
+                       Foreground="#2C3E50" Margin="0,0,0,20"/>
 
-			<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <!-- فورم الإدخال -->
+            <Border Grid.Row="1" Background="White" CornerRadius="12"
+                    BorderBrush="#dcdde1" BorderThickness="1" Padding="20" Margin="0,0,0,20">
+                <Border.Effect>
+                    <DropShadowEffect Color="Black" BlurRadius="12" ShadowDepth="2" Opacity="0.3"/>
+                </Border.Effect>
 
-				<!-- Full Name -->
-				<StackPanel Margin="10">
-					<TextBlock Text="Full Name" FontWeight="Bold" Foreground="#2C3E50"/>
-					<TextBox x:Name="InputFullName" Width="160" Height="35" BorderBrush="#bdc3c7"/>
-				</StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-				<!-- Phone -->
-				<StackPanel Margin="10">
-					<TextBlock Text="Phone" FontWeight="Bold" Foreground="#2C3E50"/>
-					<TextBox x:Name="InputPhone" Width="140" Height="35" BorderBrush="#bdc3c7"/>
-				</StackPanel>
+                    <!-- Full Name -->
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Full Name" FontWeight="Bold" Foreground="#2C3E50"/>
+                        <TextBox x:Name="InputFullName" Width="160" Height="35" BorderBrush="#bdc3c7"/>
+                    </StackPanel>
 
-				<!-- Email -->
-				<StackPanel Margin="10">
-					<TextBlock Text="Email" FontWeight="Bold" Foreground="#2C3E50"/>
-					<TextBox x:Name="InputEmail" Width="200" Height="35" BorderBrush="#bdc3c7"/>
-				</StackPanel>
+                    <!-- Phone -->
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Phone" FontWeight="Bold" Foreground="#2C3E50"/>
+                        <TextBox x:Name="InputPhone" Width="140" Height="35" BorderBrush="#bdc3c7"/>
+                    </StackPanel>
 
-				<!-- Address -->
-				<StackPanel Margin="10">
-					<TextBlock Text="Address" FontWeight="Bold" Foreground="#2C3E50"/>
-					<TextBox x:Name="InputAddress" Width="220" Height="35" BorderBrush="#bdc3c7"/>
-				</StackPanel>
+                    <!-- Email -->
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Email" FontWeight="Bold" Foreground="#2C3E50"/>
+                        <TextBox x:Name="InputEmail" Width="200" Height="35" BorderBrush="#bdc3c7"/>
+                    </StackPanel>
 
-				<!-- City -->
-				<StackPanel Margin="10">
-					<TextBlock Text="City" FontWeight="Bold" Foreground="#2C3E50"/>
-					<TextBox x:Name="InputCity" Width="120" Height="35" BorderBrush="#bdc3c7"/>
-				</StackPanel>
+                    <!-- Address -->
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Address" FontWeight="Bold" Foreground="#2C3E50"/>
+                        <TextBox x:Name="InputAddress" Width="220" Height="35" BorderBrush="#bdc3c7"/>
+                    </StackPanel>
 
-				<!-- Notes -->
-				<StackPanel Margin="10">
-					<TextBlock Text="Notes" FontWeight="Bold" Foreground="#2C3E50"/>
-					<TextBox x:Name="InputNotes" Width="150" Height="35" BorderBrush="#bdc3c7"/>
-				</StackPanel>
+                    <!-- City -->
+                    <StackPanel Margin="10">
+                        <TextBlock Text="City" FontWeight="Bold" Foreground="#2C3E50"/>
+                        <TextBox x:Name="InputCity" Width="120" Height="35" BorderBrush="#bdc3c7"/>
+                    </StackPanel>
 
-				<!-- Save Button -->
-				<StackPanel Margin="15,30,0,0">
-					<Button Content="💾 Save"
-                            Width="120" Height="40"
-                            Background="#27ae60"
-                            Foreground="White" FontWeight="Bold"
-                            BorderBrush="#1e8449"
-                            Click="SaveCustomer_Click"
-                            Cursor="Hand"/>
-				</StackPanel>
-			</StackPanel>
-		</Border>
+                    <!-- Notes -->
+                    <StackPanel Margin="10">
+                        <TextBlock Text="Notes" FontWeight="Bold" Foreground="#2C3E50"/>
+                        <TextBox x:Name="InputNotes" Width="150" Height="35" BorderBrush="#bdc3c7"/>
+                    </StackPanel>
 
-		<!-- جدول العملاء -->
-		<Border Grid.Row="2" Background="White" CornerRadius="12"
-                BorderBrush="#dcdde1" BorderThickness="1" Padding="10">
-			<Border.Effect>
-				<DropShadowEffect Color="Black" BlurRadius="12" ShadowDepth="2" Opacity="0.25"/>
-			</Border.Effect>
+                    <!-- Save Button -->
+                    <StackPanel Margin="15,30,0,0">
+                        <Button Content="💾 Save"
+                                Width="120" Height="40"
+                                Background="#27ae60"
+                                Foreground="White" FontWeight="Bold"
+                                BorderBrush="#1e8449"
+                                Click="SaveCustomer_Click"
+                                Cursor="Hand"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
 
-			<DataGrid x:Name="GridCustomers"
-                      AutoGenerateColumns="False"
-                      CanUserAddRows="False"
-                      IsReadOnly="True"
-                      RowBackground="White"
-                      AlternatingRowBackground="#f8f9fa"
-                      GridLinesVisibility="Horizontal"
-                      HeadersVisibility="Column"
-                      FontSize="14"
-                      Foreground="#2C3E50"
-                      BorderThickness="0">
+            <!-- جدول العملاء -->
+            <Border Grid.Row="2" Background="White" CornerRadius="12"
+                    BorderBrush="#dcdde1" BorderThickness="1" Padding="10">
+                <Border.Effect>
+                    <DropShadowEffect Color="Black" BlurRadius="12" ShadowDepth="2" Opacity="0.25"/>
+                </Border.Effect>
 
-				<DataGrid.Columns>
-					<DataGridTextColumn Header="Full Name" Binding="{Binding FullName}" Width="*"/>
-					<DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="120"/>
-					<DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="180"/>
-					<DataGridTextColumn Header="Address" Binding="{Binding Address}" Width="180"/>
-					<DataGridTextColumn Header="City" Binding="{Binding City}" Width="120"/>
-					<DataGridTextColumn Header="Notes" Binding="{Binding Notes}" Width="200"/>
-					<DataGridTextColumn Header="Created At" Binding="{Binding CreatedAt}" Width="150"/>
+                <DataGrid x:Name="GridCustomers"
+                          AutoGenerateColumns="False"
+                          CanUserAddRows="False"
+                          IsReadOnly="True"
+                          RowBackground="White"
+                          AlternatingRowBackground="#f8f9fa"
+                          GridLinesVisibility="Horizontal"
+                          HeadersVisibility="Column"
+                          FontSize="14"
+                          Foreground="#2C3E50"
+                          BorderThickness="0">
 
-					<!-- زر مسح -->
-					<DataGridTemplateColumn Header="Actions" Width="100">
-						<DataGridTemplateColumn.CellTemplate>
-							<DataTemplate>
-								<Button Content="❌ Delete"
-                                        Background="#e74c3c" Foreground="White"
-                                        Padding="5,2"
-                                        Cursor="Hand"
-                                        Click="DeleteCustomer_Click"/>
-							</DataTemplate>
-						</DataGridTemplateColumn.CellTemplate>
-					</DataGridTemplateColumn>
-				</DataGrid.Columns>
-			</DataGrid>
-		</Border>
-	</Grid>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Full Name" Binding="{Binding FullName}" Width="*"/>
+                        <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" Width="120"/>
+                        <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="180"/>
+                        <DataGridTextColumn Header="Address" Binding="{Binding Address}" Width="180"/>
+                        <DataGridTextColumn Header="City" Binding="{Binding City}" Width="120"/>
+                        <DataGridTextColumn Header="Notes" Binding="{Binding Notes}" Width="200"/>
+                        <DataGridTextColumn Header="Created At" Binding="{Binding CreatedAt}" Width="150"/>
+
+                        <!-- زر مسح -->
+                        <DataGridTemplateColumn Header="Actions" Width="100">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="❌ Delete"
+                                            Background="#e74c3c" Foreground="White"
+                                            Padding="5,2"
+                                            Cursor="Hand"
+                                            Click="DeleteCustomer_Click"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+    </DockPanel>
 </Window>

@@ -130,5 +130,43 @@ namespace SalesSuite.Views
                 pd.PrintVisual(img, $"Barcode_{p.SKU}");
             }
         }
+        private void NavList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (NavList.SelectedItem is ListBoxItem item)
+            {
+                string tag = item.Tag.ToString();
+                switch (tag)
+                {
+                    case "Home":
+                        new MainWindow(new User { Username = "Admin" }).Show();
+                        this.Close();
+                        break;
+                    case "Customers":
+                        new CustomersWindow().Show();
+                        this.Close();
+                        break;
+                    case "Products":
+                        new ProductsWindow().Show();
+                        this.Close();
+                        break;
+                    case "Purchases":
+                        new PurchasesWindow().Show();
+                        this.Close();
+                        break;
+                    case "Reports":
+                        new ReportsWindow().Show();
+                        this.Close();
+                        break;
+                    case "Register":
+                        new RegisterWindow().ShowDialog();
+                        break;
+                    case "Logout":
+                        new LoginWindow().Show();
+                        this.Close();
+                        break;
+                }
+            }
+        }
+
     }
 }
